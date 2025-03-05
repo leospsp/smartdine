@@ -91,28 +91,19 @@
         .screen.active {
             display: block;
         }
+
+        .menu-item {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .menu-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuButton = document.querySelector(".menu-button");
-            const sidebar = document.getElementById("sidebar");
-
-            function toggleMenu() {
-                sidebar.classList.toggle("open");
-                menuButton.classList.toggle("hidden");
-            }
-
-            function closeMenu(event) {
-                if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
-                    sidebar.classList.remove("open");
-                    menuButton.classList.remove("hidden");
-                }
-            }
-
-            menuButton.addEventListener("click", toggleMenu);
-            document.addEventListener("click", closeMenu);
-        });
-    </script>
 </head>
 <body>
     <button class="menu-button">☰</button>
@@ -130,6 +121,22 @@
         <div id="menu" class="screen">
             <h1>Menu</h1>
             <p>Seleziona i tuoi piatti preferiti</p>
+            <div class="menu-item" onclick="viewDish('pasta')">
+                <img src="pasta.jpg" alt="Pasta">
+                <p>Pasta</p>
+            </div>
+            <div class="menu-item" onclick="viewDish('pizza')">
+                <img src="pizza.jpg" alt="Pizza">
+                <p>Pizza</p>
+            </div>
+        </div>
+
+        <div id="dish" class="screen">
+            <h1 id="dish-title"></h1>
+            <img id="dish-image" src="" alt="Dish Image">
+            <p id="dish-description"></p>
+            <button onclick="addToCart()">Aggiungi al carrello</button>
+            <button onclick="navigate('menu')">Torna al menu</button>
         </div>
 
         <div id="payment" class="screen">
