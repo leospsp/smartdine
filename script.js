@@ -34,3 +34,4 @@ function viewDish(dish) {
 function addToCart() {
     alert("Piatto aggiunto al carrello!");
 }
+
